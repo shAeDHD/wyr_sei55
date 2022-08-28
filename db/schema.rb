@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_28_031434) do
+ActiveRecord::Schema.define(version: 2022_08_28_062545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,22 @@ ActiveRecord::Schema.define(version: 2022_08_28_031434) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hashtags_questions", force: :cascade do |t|
+    t.integer "hashtag_id"
+    t.integer "question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.boolean "choice"
     t.text "opt_A"
     t.text "opt_B"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "questions_tallies", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "tally_id"
   end
 
   create_table "tallies", force: :cascade do |t|
@@ -39,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_08_28_031434) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.date "dob"
     t.datetime "created_at", null: false
