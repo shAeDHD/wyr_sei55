@@ -1,2 +1,18 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<div id="question_container">
+    
+    <p id="wyr_text">" Would you rather</p> 
+    <p id="part_a_text"><strong><%= @question.opt_A %></strong></p> 
+    <p id="or">or</p>
+    <p id="part_b_text"><strong><%= @question.opt_B %></strong>? "</p>
+    
+</div>
+
+
+<p id="prev_choice_start">Others Chose...</p>
+<p id="prev_choice_mid">Option A:</p>
+<h3 id="opt_a_total"><%= @opt_a_total %></h3>
+<p id="prev_choice_end">Option B:</p>
+<h3 id="opt_b_total"><%= @opt_b_total %></h3>
+
+<%= @opt_a_as_percentage.round %>
+<%= @opt_b_as_percentage.round %>

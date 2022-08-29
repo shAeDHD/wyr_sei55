@@ -3,7 +3,7 @@ class SessionController < ApplicationController
   def new
   end
 
-  
+
   def create
     user = User.find_by email: params[:email]
 
@@ -26,7 +26,7 @@ class SessionController < ApplicationController
 
   def destroy
 
-    session[:error]
+    session[:user_id] = nil
 
     redirect_to login_path
 

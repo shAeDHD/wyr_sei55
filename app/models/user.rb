@@ -8,7 +8,9 @@ class User < ApplicationRecord
     validates :dob, presence: true 
   
     has_secure_password
-  
+
+    has_many :tallies
+
     has_many :questions
 
 

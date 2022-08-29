@@ -9,35 +9,41 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <header>
 
-      <nav>
+  <body>
+    <header id="nav_header">
+
+      <nav id="nav_bar">
         <h1>WouldYouRather? (placeholder)</h1>
           <% if @current_user.present? %>
             Welcome, <%= @current_user.name %>
             |
+            <%= link_to 'Profile', users_show_path %>
+            |
             <%= link_to 'Logout', login_path, method: 'delete' %>
-
-          <% else %>
             
+       
+          <% else %>
+          </div>
             <%= link_to 'Login', login_path %>
             |
             <%= link_to 'Sign Up', new_user_path %>
           
           <% end %>
 
+          <%= image_tag 'Artboard 1', id: "wyr_nav_emblem" %>
           <hr>
 
       </nav>
     
-    </header>
-
+    </header> <!-- closes header -->
+   
     <%= yield %>
-  
-    <footer>
+    
+    <footer id="main_footer">
       <hr>
       &copy;2022. WillYolandaRing
-    </footer>
+    </footer> <!-- closes footer -->
+
   </body>
 </html>
