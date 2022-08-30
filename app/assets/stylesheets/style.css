@@ -144,6 +144,16 @@ body {
     box-sizing: border-box;
     display: inline-block;
 }
+
+#question_show_no_data_available{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 6;
+
+    text-align: center;
+
+}
 /* ---------------------------------------------------------------- */
 /* ---------------- questions / random.html.erb ------------------- */
 /* ---------------------------------------------------------------- */

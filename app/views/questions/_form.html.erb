@@ -1,9 +1,9 @@
 <div class="question_container">
 
-    <% if @mixtape.errors.any? %>
+    <% if @question.errors.any? %>
         <strong>Please correct the following:</strong>
         <ul>
-            <% @mixtape.errors.full_messages.each do |e| %>
+            <% @question.errors.full_messages.each do |e| %>
             <li><%= e %></li>
             <% end %>
         </ul>
@@ -15,13 +15,13 @@
         <%= f.label :'Would You Rather'%>
         <br><br>
 
-        <%= f.text_field :'opt_a' , placeholder: 'enter option A here' %>
+        <%= f.text_field :'opt_A' , placeholder: 'enter option A here' %>
         <br><br>
 
         <%= f.label :'or' %>
         <br><br>
 
-        <%= f.text_field :'opt_b', placeholder: 'enter option B here' %>
+        <%= f.text_field :'opt_B', placeholder: 'enter option B here' %>
         <br><br>
 
         <%= f.label :'?' %>
