@@ -7,3 +7,7 @@
 <div id="tally_new_opt_b">
     <%= link_to @random_question.opt_B, tally_path(@random_question.id, 'B'), method: 'post' %>
 </div>
+
+<div class="question_next_container">
+    <%= link_to "... really don't want to answer", root_path, class: "question_next_link"  %>
+</div>

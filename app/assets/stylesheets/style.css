@@ -1,14 +1,21 @@
+
 /* ---------------------------------------------------------------- */
 /* ------------------- application.html.erb ----------------------- */
 /* ---------------------------------------------------------------- */
 body {
 
-    background-color: rgb(227, 207, 147);
-    color: black;
+    background-color: #bee1e8;
+    color: #242423;
 
     display: grid;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(5, 1fr);
+
+}
+h3{
+    color: #242423;
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
+    font-size: 25pt;
 
 }
 #nav_header{
@@ -18,7 +25,8 @@ body {
     grid-row-start: 1;
     grid-row-end: 2;
 
-
+    display: inline-flex;
+    flex-direction: column;
 }
 #main_footer{
     grid-column-start: 1;
@@ -37,6 +45,13 @@ body {
     height: auto;
 
 }
+#nav_h3{
+    font-size: 10pt;
+}
+.nav_bar_item{
+    display: inline-flex;
+}
+
 /* ---------------------------------------------------------------- */
 /* ------------------- questions/ show.html.erb ------------------- */
 /* ---------------------------------------------------------------- */
@@ -47,27 +62,33 @@ body {
     grid-row-end: 3;
 
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
+    
     margin: 5vw;
-
+    padding: 5px;
     border: 4px ridge slategray;
+
+    text-align: center;
 }
-#wyr_text{
-    align-self: flex-start;
+.wyr_text{
+    align-self: center;
 
 }
 #part_a_text{
-    
+    color: #054a83;
     align-self: center;
     text-align: center;
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9
 
 }
 #or{
     align-self: flex-start;
 }
 #part_b_text{
+    color: #fe9c00;
     align-self: center;
     text-align: center;
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9
 
 }
 
@@ -129,20 +150,29 @@ body {
     grid-row-start: 5;
     grid-row-end: 6;
 
-    border: 3px solid red;
-
+    border: 4px ridge slategray;
+    filter: drop-shadow(1px 1px 1vw #ff44f9);
+    white-space: nowrap;
+    display: inline-flex;
 }
 #option_a_box{
-    border: 2px solid blue;
-    height:fit-content;
-    box-sizing: border-box;
+   
+    background-image: none;
+    background-color: #054a83;
+    height:17vh;
     display: inline-block;
-    background-color: aqua;
+    box-sizing: border-box;
+    align-self: center;
+    
 }
 #option_b_box{
-    border: 2px solid green;
-    box-sizing: border-box;
+  
+    background-image: none;
+    background-color: #f69f21;
+    height: 17vh;
     display: inline-block;
+    box-sizing: border-box;
+
 }
 
 #question_show_no_data_available{
@@ -174,6 +204,8 @@ body {
 
     justify-self: end;
     align-self: center;
+    border: 1vw ridge #055596;
+    padding: 1vw;
 }
 #tally_new_or{
     grid-column-start: 3;
@@ -193,6 +225,27 @@ body {
 
     justify-self: start;
     align-self: center;
+    border: 1vw ridge #055596;
+    padding: 1vw;
+}
+
+.question_next_container{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 6;
+
+    justify-self: center;
+    border: 1vw ridge #055596;
+    padding: 1vw;
+    align-self: center;
+    z-index: 500;
+    background-color: #9fd8e5;
+    filter: drop-shadow(0.5px 0.5px 1vw #ff44f9);
+
+}
+.question_next_link{
+    z-index: 500;
 }
 /* ---------------------------------------------------------------- */
 /* --------------------- users / show.html.erb -------------------- */
@@ -232,6 +285,7 @@ body {
     align-self: center;
       
 }
+
 /* ---------------------------------------------------------------- */
 /* ------------------ questions / new.html.erb -------------------- */
 /* ---------------------------------------------------------------- */

@@ -1,22 +1,26 @@
 class QuestionsController < ApplicationController
-  before_action :check_if_logged_in, only: [:create, :index]
+  before_action :check_if_logged_in, only: [:create, :index, :show]
   
   def new
+  
     @question = Question.new
-  end
+  
+  end # close NEW
 
   def create
+
     @question = Question.new question_params
     @question.opt_A = question_params[:opt_A]
     @question.opt_B = question_params[:opt_B]
     @question.user_id = @current_user.id
     @question.save
     redirect_to question_path @question.id
-  end
+  
+  end # close CREATE
 
   def index
 
-  end
+  end # close INDEX
 
   def show
     
@@ -28,21 +32,50 @@ class QuestionsController < ApplicationController
     @opt_b_total = @question.tallies.where(question_answer: false).length
     @opt_b_as_percentage = @opt_b_total.to_f / @question.tallies.length * 100
 
-  end
+  end # close SHOW
 
   def random
 
     @random_question = Question.random_question
     
-  end
+  end # close RANDOM
 
   def edit
-  end
+
+    @question = Question.find params[:id]
+
+    if @question.user_id != @current_user.id
+    
+      redirect_to login_path  # KICK unpermitted user
+    
+    end # close if
+
+  end # close EDIT
 
   def update
-  end
+  
+    @question = Question.find params[:id]
+
+    if @question.user_id != @current_user.id
+      redirect_to login_path
+      
+      return  # KICK unpermitted user 
+      
+    end # close if
+
+    if @question.update question_params
+      redirect_to @question  
+
+    else
+    
+      render :edit
+    
+    end # close if/else
+
+  end # close UPDATE  
 
   def destroy
+  
   end
 
   private

@@ -14,33 +14,37 @@
     <header id="nav_header">
 
       <nav id="nav_bar">
-        <h1>WouldYouRather? (placeholder)</h1>
+        <%# <h1>WouldYouRather? (placeholder)</h1> %>
           <% if @current_user.present? %>
-            Welcome, <%= @current_user.name %>
-            <%= link_to 'WYR: Create New', new_question_path  %>
-            |
-            <%= link_to 'Profile', @current_user %>
-            |
-            <%= link_to 'Logout', login_path, method: 'delete' %>
+            Welcome, <%= " #{@current_user.name}" %>,
             
+            <h3 id="nav_h3" class="nav_bar_item">Would You Rather?</h3>
+            |
+            <%= link_to 'Profile', @current_user, class: "nav_bar_item" %>
+            |
+            <%= link_to 'Logout', login_path, method: 'delete', class: "nav_bar_item" %>
+            |
+            <%= link_to 'WYR: New', new_question_path, class: "nav_bar_item"  %>
+            |
+
        
           <% else %>
           </div>
-            <%= link_to 'Login', login_path %>
+            <%= link_to 'Login', login_path, class: "nav_bar_item" %>
             |
-            <%= link_to 'Sign Up', new_user_path %>
+            <%= link_to 'Sign Up', new_user_path, class: "nav_bar_item" %>
           
           <% end %>
 
           <%= image_tag 'Artboard 1', id: "wyr_nav_emblem" %>
-          <hr>
+      <hr>
 
       </nav>
-    
+
     </header> <!-- closes header -->
    
     <%= yield %>
-    
+        
     <footer id="main_footer">
       <hr>
       &copy;2022. WillYolandaRing

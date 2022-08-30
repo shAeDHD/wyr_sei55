@@ -23,7 +23,8 @@ class ApplicationController < ActionController::Base
 
         unless @current_user.present?
 
-            flash[:error] = 'You must be logged in to perform this action.'
+            flash[:error] = 
+            'Want to see what everyone else chose? Either log in, or create an account.'
 
             redirect_to login_path
 
