@@ -1,5 +1,14 @@
 <div class="question_container">
 
+    <% if @mixtape.errors.any? %>
+        <strong>Please correct the following:</strong>
+        <ul>
+            <% @mixtape.errors.full_messages.each do |e| %>
+            <li><%= e %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
     <%= form_with model: @question, local: true do |f| %>
 
     
