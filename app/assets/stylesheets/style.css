@@ -64,7 +64,6 @@ h3{
     display: flex;
     justify-content:space-evenly;
     
-    margin: 5vw;
     padding: 5px;
     border: 4px ridge slategray;
 
@@ -195,17 +194,22 @@ h3{
 
     justify-self: center;
     align-self: end;
+    
 }
 #tally_new_opt_a{
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 5;
+    background-color: #054a83;
 
     justify-self: end;
     align-self: center;
-    border: 1vw ridge #055596;
+    border: 0.25vw ridge #242423;
     padding: 1vw;
+
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
+
 }
 #tally_new_or{
     grid-column-start: 3;
@@ -222,11 +226,16 @@ h3{
     grid-column-end: 6;
     grid-row-start: 3;
     grid-row-end: 5;
+    background-color: #f69f21;
+
 
     justify-self: start;
     align-self: center;
-    border: 1vw ridge #055596;
+    border: 0.25vw ridge #242423;
     padding: 1vw;
+
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
+
 }
 
 .question_next_container{
@@ -236,7 +245,7 @@ h3{
     grid-row-end: 6;
 
     justify-self: center;
-    border: 1vw ridge #055596;
+    border: 0.25vw ridge #242423;
     padding: 1vw;
     align-self: center;
     z-index: 500;
