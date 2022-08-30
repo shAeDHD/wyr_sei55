@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
         if session[:user_id].present?
         
             @current_user = User.find_by id: session[:user_id]
+            # raise 'hell'
 
         end # check for log in
 
@@ -17,7 +18,6 @@ class ApplicationController < ActionController::Base
         end
 
     end # fetch user
-
 
     def check_if_logged_in 
 

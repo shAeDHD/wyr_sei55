@@ -1,3 +1,6 @@
+/* ---------------------------------------------------------------- */
+/* ------------------- application.html.erb ----------------------- */
+/* ---------------------------------------------------------------- */
 body {
 
     background-color: rgb(227, 207, 147);
@@ -34,14 +37,9 @@ body {
     height: auto;
 
 }
-/* #page_div{
-    grid-column-start: 1;
-    grid-column-end: 6;
-
-    grid-row-start: 1;
-    grid-row-end: 6; 
-} */
-
+/* ---------------------------------------------------------------- */
+/* ------------------- questions/ show.html.erb ------------------- */
+/* ---------------------------------------------------------------- */
 #question_container{
     grid-column-start: 1;
     grid-column-end: 6;
@@ -72,61 +70,83 @@ body {
     text-align: center;
 
 }
-#wyr_punctuation{
-    align-self: flex-start;
-}
-
 
 #prev_choice_start{
     grid-column-start: 3;
     grid-column-end: 4;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
 
     justify-self: center;
     text-align: center;
-}
-#opt_a_total{
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 5;
-    grid-row-end: 6;
-
-    text-align: center;
-    align-self: flex-start;
-}
+}           /*      "Others Chose"           */           
 #prev_choice_mid{
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
 
     justify-self: center;
     align-self: end;
     text-align: center;
 
-}
+}           /*      "Option A:"              */
+#opt_a_total_container{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+
+    align-content: space-between;
+    text-align: center;
+    align-self: flex-start;
+    display: block;
+}           /*      Option A details         */
 #prev_choice_end{
     grid-column-start: 4;
     grid-column-end: 5;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
 
     justify-self: center;
     align-self: end;
     text-align: center;
 
-}
-#opt_b_total{
+}           /*      "Option B:"              */
+#opt_b_total_container{
     grid-column-start: 4;
     grid-column-end: 5;
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
 
     text-align: center;
     align-self: flex-start;
-}
+}           /*      Option B details         */
 
+#visual_of_choices{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 6;
+
+    border: 3px solid red;
+
+}
+#option_a_box{
+    border: 2px solid blue;
+    height:fit-content;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: aqua;
+}
+#option_b_box{
+    border: 2px solid green;
+    box-sizing: border-box;
+    display: inline-block;
+}
+/* ---------------------------------------------------------------- */
+/* ---------------- questions / random.html.erb ------------------- */
+/* ---------------------------------------------------------------- */
 #tally_new_h3{
     grid-column-start: 1;
     grid-column-end: 6;
@@ -164,9 +184,42 @@ body {
     justify-self: start;
     align-self: center;
 }
+/* ---------------------------------------------------------------- */
+/* --------------------- users / show.html.erb -------------------- */
+/* ---------------------------------------------------------------- */
+#user_info_name_container{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
 
-
-#user_info_list{
-    list-style-type: none;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
 
 }
+#user_info_email_container{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+}
+#user_info_dob_container{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+      
+}
+/* ---------------------------------------------------------------- */

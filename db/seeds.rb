@@ -22,7 +22,7 @@ Question.destroy_all
 
 q1 = Question.create! opt_A: 'have everyone be able to read your thoughts', opt_B: 'for everyone you know to have access to your internet history'
 q2 = Question.create! opt_A: 'always have B.O. and not know it', opt_B: 'always smell B.O. on everyone else?'
-q3 = Question.create! opt_A: 'get slapped in the face every time you thought about sex', opt_B: 'sneeze continuously while having sex'
+q3 = Question.create! opt_A: 'have a baby vomit on you', opt_B: 'vomit on a baby'
 q4 = Question.create! opt_A: 'have someone tell you the brutal truth', opt_B: 'have them lie to protect your feelings'
 
 puts "created #{Question.count}"
@@ -43,6 +43,8 @@ h4 = Hashtag.create! name: 'wholesome'
 puts "created #{Hashtag.count}"
 
 h1.questions << q3 
+
+
 
 # puts "#{}"
 

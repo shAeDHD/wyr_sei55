@@ -10,9 +10,18 @@
 
 <p id="prev_choice_start">Others Chose...</p>
 <p id="prev_choice_mid">Option A:</p>
-<h3 id="opt_a_total"><%= @opt_a_total %></h3>
-<p id="prev_choice_end">Option B:</p>
-<h3 id="opt_b_total"><%= @opt_b_total %></h3>
 
-<%= @opt_a_as_percentage.round %>
-<%= @opt_b_as_percentage.round %>
+<div id="opt_a_total_container">
+    <h3 class="opt_a_total"><%=@opt_a_as_percentage.round%></h3>
+    <p class="opt_a_total">(or <%=@opt_a_total%> of <%=@question.tallies.length%> total choices)</p> 
+</div>
+
+<p id="prev_choice_end">Option B:</p>
+<div id="opt_b_total_container">
+    <h3 class="opt_b_total"><%= @opt_b_as_percentage.round %></h3>
+    <p class="opt_b_total">(or <%=@opt_b_total%> of <%=@question.tallies.length%> total choices)</p> 
+</div>
+
+<div id="visual_of_choices"><u></u>
+    <div id="option_a_box" style="width: <%=@opt_a_as_percentage%>%"></div><div id="option_b_box" style="width: <%=@opt_b_as_percentage%>%"></div>
+</div>

@@ -1,8 +1,18 @@
 
-<ul id="user_info_list">
-    <li>Display Name: <h1><%= @current_user.name %></h1></li>
-    <li>Email: <%= @current_user.email %></li>
-    <li>Dob: <%= @current_user.dob.strftime("%d-%m-%Y") %></li>
 
-    
-</ul>
+<div id="user_info_name_container">
+    <p class="user_info_name">Display Name:</p> 
+    <h3 class="user_info_name"><%= @current_user.name %></h3>
+</div>
+
+<div id="user_info_email_container">
+    <p class="user_info_email">Email:</p>
+    <p class="user_info_email"><%= @current_user.email %></p>
+</div>
+
+<div id="user_info_dob_container">
+    <p class="user_info_dob">Dob:</p>  
+    <p class="user_info_dob"><%= @current_user.dob.strftime("%d-%m-%Y")%></p> 
+</div>
+
+
