@@ -2,9 +2,13 @@ class QuestionsController < ApplicationController
   before_action :check_if_logged_in, only: [:create, :index]
   
   def new
+    @question = Question.new
   end
 
   def create
+    @question = Question.new question_params
+    @question.user_id = @current_user.id
+    @question.save
   end
 
   def index

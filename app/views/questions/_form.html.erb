@@ -1,1 +1,26 @@
+<div class="question_container">
 
+    <%= form_with model: @question, local: true do |f| %>
+
+    
+        <%= f.label :'Would You Rather'%>
+        <br><br>
+
+        <%= f.text_field :'opt_a' , placeholder: 'enter option A here' %>
+        <br><br>
+
+        <%= f.label :'or' %>
+        <br><br>
+
+        <%= f.text_field :'opt_b', placeholder: 'enter option B here' %>
+        <br><br>
+
+        <%= f.label :'?' %>
+        <br><br>
+    
+
+        <%= f.button :submit, placeholder: 'submit' %>
+
+
+    <% end %>
+</div>

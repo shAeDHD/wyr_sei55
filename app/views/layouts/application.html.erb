@@ -17,6 +17,7 @@
         <h1>WouldYouRather? (placeholder)</h1>
           <% if @current_user.present? %>
             Welcome, <%= @current_user.name %>
+            <%= link_to 'WYR: Create New', new_question_path  %>
             |
             <%= link_to 'Profile', @current_user %>
             |
