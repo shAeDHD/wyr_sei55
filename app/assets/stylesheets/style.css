@@ -2,16 +2,30 @@
 /* ---------------------------------------------------------------- */
 /* ------------------- application.html.erb ----------------------- */
 /* ---------------------------------------------------------------- */
-body {
+#main_body_background_image{
+    background-image: url(background_image.jpg);
+    background-size:200% ;
+    
+    position: absolute;
+    
+    
+    
+}
+#main_body_contents_container {
+   
+    position: absolute;
 
-    background-color: #bee1e8;
     color: #242423;
+    width: 101vw;
+    height: 101vh;
+    
 
     display: grid;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(5, 1fr);
 
 }
+
 h3{
     color: #242423;
     text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
