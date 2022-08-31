@@ -7,7 +7,7 @@
             <li><%= e %></li>
             <% end %>
         </ul>
-    <% end %>
+    <% end %> 
 
     <%= form_with model: @question, local: true do |f| %>
 
@@ -15,21 +15,27 @@
         <%= f.label :'Would You Rather'%>
         <br><br>
 
-        <%= f.text_field :'opt_A' , placeholder: 'enter option A here' %>
+        <%= f.text_area :'opt_A' , placeholder: 'enter option A here', class: 'new_or_edit_text_box' %>
         <br><br>
 
         <%= f.label :'or' %>
         <br><br>
 
-        <%= f.text_field :'opt_B', placeholder: 'enter option B here' %>
+        <%= f.text_area :'opt_B', placeholder: 'enter option B here', class: 'new_or_edit_text_box' %>
         <br><br>
 
         <%= f.label :'?' %>
         <br><br>
     
 
-        <%= f.button :submit, placeholder: 'submit' %>
-
+        <%= f.button :Submit, class: "question_edit_new_button" %>
+        
+        <button id="question_cancel_button" class="question_edit_new_button">
+        
+            <%= link_to 'Cancel', root_path %>
+        
+        </button>
 
     <% end %>
+
 </div>

@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
     @opt_b_total = @question.tallies.where(question_answer: false).length
     @opt_b_as_percentage = @opt_b_total.to_f / @question.tallies.length * 100
 
+    # raise 'hell'
   end # close SHOW
 
   def random
@@ -75,13 +76,16 @@ class QuestionsController < ApplicationController
   end # close UPDATE  
 
   def destroy
-  
-  end
+    Question.destroy params[:id]
+    redirect_to root_path
+  end # close DESTROY
 
   private
 
   def question_params
+  
     params.require(:question).permit(:opt_A, :opt_B)
-  end
+  
+  end # close PRIVATE
 
 end

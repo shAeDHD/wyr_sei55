@@ -27,6 +27,8 @@
             <%= link_to 'WYR: New', new_question_path, class: "nav_bar_item"  %>
             |
 
+          
+
        
           <% else %>
           </div>
@@ -35,8 +37,10 @@
             <%= link_to 'Sign Up', new_user_path, class: "nav_bar_item" %>
           
           <% end %>
+          <div id="wyr_nav_container">
+            <%= image_tag 'Artboard 1', id: "wyr_nav_emblem" %>
 
-          <%= image_tag 'Artboard 1', id: "wyr_nav_emblem" %>
+          </div>
       <hr>
 
       </nav>

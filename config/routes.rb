@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/tallies/question/:question_id/:choice' => 'tallies#create', as: 'tally'
   get '/questions/random' => 'questions#random', as: 'random_question' 
 
+  get '/tallies/show/:id' => 'tallies#show', as: ''
+
   resources :questions, :users, :genres, :tallies
 
 end

@@ -15,4 +15,36 @@
     <p class="user_info_dob"><%= @current_user.dob.strftime("%d-%m-%Y")%></p> 
 </div>
 
+<div id="user_info_made_questions_container">
+    
+    <ul>
+        <h4>Questions made by, <%= @current_user.name %>:</h4>
+        <% @questions.each do | question | %>
 
+            <li class="user_info_made_question">
+                <%= link_to 'Question', question_path(question.id) %>
+            </li>
+    
+        <% end %>
+
+    </ul>
+
+</div> 
+
+
+<div id="user_info_tallies_made">
+
+    <ul>
+        <h4><%= @current_user.name %> answered the following...</h4>
+        <% @current_user.tallies.each do | tally | %>
+
+            <li>
+            Answered <%= tally.question_answer %> 
+            to question <%= tally.question.id %>
+            </li>
+
+        <% end %>
+
+    </ul>
+
+</div>

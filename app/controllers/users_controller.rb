@@ -5,23 +5,21 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    def create
 
-      @user = User.create user_params     # strong params
-  
- 
-      if @user.persisted?
-        
-        session[:user_id] = @user.id      # Login upon completion
-        redirect_to root_path             # transfer to random Q
+  def create
+
+    @user = User.create user_params     # strong params
+
+
+    if @user.persisted?
       
-      else
-       
-        render :new  
+      session[:user_id] = @user.id      # Login upon completion
+      redirect_to root_path             # transfer to random Q
+    
+    else
       
-      end
-  
+      render :new  
+    
     end
 
   end
@@ -30,6 +28,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @questions = @current_user.questions
+    # raise 'hell'
   end
 
   def edit

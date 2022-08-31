@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
 
     before_action :fetch_user
 
+    
+    # client = Pexels::Client.new('563492ad6f91700001000001d5f38a6e895a41b8ab0e4565475c9eed')
+
+
     def fetch_user
 
         if session[:user_id].present?
