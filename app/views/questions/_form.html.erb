@@ -9,7 +9,7 @@
         </ul>
     <% end %> 
 
-    <%= form_with model: @question, local: true do |f| %>
+    <%= form_with model: @question, local: true, html: { multipart: true } do |f| %>
 
     
         <%= f.label :'Would You Rather'%>
@@ -26,10 +26,16 @@
 
         <%= f.label :'?' %>
         <br><br>
-    
 
         <%= f.button :Submit, class: "question_edit_new_button" %>
-        
+        <br><br>
+
+        <br><br>
+        <%= f.label :'thumbnail_image' %>
+        <%= f.file_field :'thumbnail_image' %>
+
+        <br><br>
+        <br><br>
         <button id="question_cancel_button" class="question_edit_new_button">
         
             <%= link_to 'Cancel', root_path %>

@@ -3,16 +3,17 @@
 /* ------------------- application.html.erb ----------------------- */
 /* ---------------------------------------------------------------- */
 #main_body_background_image{
-    background-image: url(background_image.jpg);
-    background-size:200% ;
-    
-    position: absolute;
-    
+
+    height: 100%;
+    width: 100%;
+    background-color: #231f20;
     
     
 }
 #main_body_contents_container {
    
+    height: 101vh;
+    width: 101vw;
     position: absolute;
 
     color: #242423;
@@ -25,48 +26,10 @@
     grid-template-columns: repeat(5, 1fr);
 
 }
-
 h3{
     color: #242423;
     text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
     font-size: 25pt;
-
-}
-#nav_header{
-    grid-column-start: 1;
-    grid-column-end: 6;
-
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-    display: inline-flex;
-    flex-direction: column;
-}
-#main_footer{
-    grid-column-start: 1;
-    grid-column-end: 6;
-
-    grid-row-start: 6;
-
-}
-#nav_h3{
-    font-size: 10pt;
-}
-.nav_bar_item{
-    display: inline-flex;
-}
-#wyr_nav_container{
-    display: block;
-    text-align: end;
-}
-#wyr_nav_emblem{
-
-    display: block;
-    position: absolute;
-    right: 0vw;
-    top: 0vh;
-    width: 10vw;
-    height: auto;
 
 }
 
@@ -105,8 +68,8 @@ h3{
     color: #fe9c00;
     align-self: center;
     text-align: center;
-    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9
-
+    text-shadow: -0.5px -1px 0.2 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9
+    
 }
 
 #prev_choice_start{
@@ -398,5 +361,54 @@ h3{
     justify-self: center;
 
 }
+
+/* ---------------------------------------------------------------- */
+/* --------------------- NEW main menu ---------------------------- */
+/* ---------------------------------------------------------------- */
+#menu_container{
+    position: relative;
+    border-radius: 100%;
+    background-color: azure;
+    width: 3vw;
+    height: 3vw;
+    overflow: hidden;
+
+
+    top: 100%;
+    left: 100%;
+    
+
+}
+.menu_item{
+
+    position: relative;
+    display: inline;
+
+
+}
+#swirl{
+
+    position: absolute;
+    top: -2%;
+    left: -2%;
+
+
+}
+.st1{
+
+
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+      
+} /* class for vector swirls */
+
+@keyframes rotation {
+
+
+    100% {transform: rotate(-359deg);}
+
+}
+
+  
 
 

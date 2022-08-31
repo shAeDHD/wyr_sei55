@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :check_if_logged_in, only: [:create, :index, :show]
   
+
   def new
   
     @question = Question.new
@@ -8,11 +9,17 @@ class QuestionsController < ApplicationController
   end # close NEW
 
   def create
-
+    # raise 'hell'
     @question = Question.new question_params
     @question.opt_A = question_params[:opt_A]
     @question.opt_B = question_params[:opt_B]
     @question.user_id = @current_user.id
+    if params[:question][:thumbnail_image].present?
+
+      response = Cloudinary::Uploader.upload params[:question][:thumbnail_image]
+      @question.thumbnail_image = response['public_id']
+
+    end
     @question.save
     redirect_to question_path @question.id
   
@@ -84,7 +91,7 @@ class QuestionsController < ApplicationController
 
   def question_params
   
-    params.require(:question).permit(:opt_A, :opt_B)
+    params.require(:question).permit(:opt_A, :opt_B, :thumbnail_image)
   
   end # close PRIVATE
 

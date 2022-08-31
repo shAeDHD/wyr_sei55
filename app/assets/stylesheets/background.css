@@ -1,0 +1,10 @@
+#background_image .st1 {
+  animation: st1 4s linear; }
+
+@keyframes st1 {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+/*# sourceMappingURL=background.css.map */

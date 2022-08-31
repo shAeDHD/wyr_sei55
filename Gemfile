@@ -56,4 +56,5 @@ end
 gem 'pry-rails'
 gem 'jquery-rails'
 gem 'ransack'
-
+gem "cloudinary", "~> 1.23"
+gem 'inline_svg'
