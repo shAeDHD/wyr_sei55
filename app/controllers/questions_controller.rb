@@ -87,11 +87,12 @@ class QuestionsController < ApplicationController
       # comparing with the previously assembled IDs of answered questions.
       possible_qs = pref_as_array.select do |question|
           
-          answered_q_ids.include? question.id
+        answered_q_ids.include? question.id
       
       end
 
       @four_new_qs = possible_qs.shuffle[0..3]
+      
 
     else
 
