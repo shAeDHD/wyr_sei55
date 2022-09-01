@@ -95,12 +95,8 @@ class QuestionsController < ApplicationController
 
     else
 
-        def self.random_question
+      Question.order('RANDOM()').first
         
-            Question.order('RANDOM()').first
-        
-        end # closes self.random_question
-
     end # closes else/end
     
 
