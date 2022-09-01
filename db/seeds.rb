@@ -52,15 +52,19 @@ h3 = Hashtag.create! name: 'rude'
 h4 = Hashtag.create! name: 'wholesome'
 h5 = Hashtag.create! name: 'funny'
 h6 = Hashtag.create! name: 'serious'
+h7 = Hashtag.create! name: 'gross'
+h8 = Hashtag.create! name: 'silly'
 
 puts "created #{Hashtag.count}"
 
-h1.questions << q3 << q1
-h2.questions << q2 << q4 
-h3.questions << q3 << q2
-h4.questions << q4  
-h5.questions << q3 << q2 << q1
-h6.questions << q4 
+h1.questions << q3 << q1 << q5 << q7 << q10 << q14
+h2.questions << q2 << q4 << q6 << q8 << q9 << q11 << q12 << q13 << q15
+h3.questions << q3 << q2 << q7 << q10 << 
+h4.questions << q4 << q14   
+h5.questions << q3 << q2 << q1 << q6 << q8 << q9 << q10 << q13 << q15
+h6.questions << q4 << q14
+h7.questions << q5 << q7 << q8 << q11
+h8.questions << q2 << q3 << q6 << q7 << q8 << q10 << q12 << q13 << q15
 
 # puts "Hashtag Question '#{q3.id}' has hashtags: #{q3.hashtags.pluck[:name].join(', ')}"
 
