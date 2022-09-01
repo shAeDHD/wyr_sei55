@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :check_if_logged_in, only: [:create, :index, :show]
+  # before_action :question_selection, only: [:random]
+
 
   def new
     @question = Question.new
@@ -54,7 +56,7 @@ class QuestionsController < ApplicationController
 
   def random
 
-    @random_question = Question.random_question
+    @random_question = question_selection
     
   end # close RANDOM
 
