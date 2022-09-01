@@ -1,9 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :check_if_logged_in, only: [:create, :index, :show]
-  
 
   def new
-  
     @question = Question.new
   
   end # close NEW
@@ -11,8 +9,6 @@ class QuestionsController < ApplicationController
   def create
     # raise 'hell'
     @question = Question.new question_params
-    @question.opt_A = question_params[:opt_A]
-    @question.opt_B = question_params[:opt_B]
     @question.user_id = @current_user.id
     if params[:question][:thumbnail_image].present?
 
@@ -20,8 +16,22 @@ class QuestionsController < ApplicationController
       @question.thumbnail_image = response['public_id']
 
     end
-    @question.save
-    redirect_to question_path @question.id
+
+    # TO DO - VALIDATION CHECKING 
+    if params[:hashtag_ids].present? && params[:hashtag_ids].length > 1
+      
+      @question.save
+      @question.hashtags << Hashtag.find(params[:hashtag_ids])
+      redirect_to question_path @question.id
+        
+    else 
+
+      # not enough hashtags supplied 
+      flash[:error]= 'Select at least 2 hashtags'
+      render :new 
+
+    end
+
   
   end # close CREATE
 
@@ -49,7 +59,6 @@ class QuestionsController < ApplicationController
   end # close RANDOM
 
   def edit
-
     @question = Question.find params[:id]
 
     if @question.user_id != @current_user.id
