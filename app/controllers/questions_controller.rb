@@ -95,7 +95,7 @@ class QuestionsController < ApplicationController
 
     else
 
-      Question.order('RANDOM()').first
+      @four_new_qs = Question.order('RANDOM()')[0..3]
         
     end # closes else/end
     

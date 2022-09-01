@@ -45337,3 +45337,84 @@ Completed 200 OK in 298ms (Views: 285.2ms | ActiveRecord: 5.2ms)
   ↳ db/seeds.rb:92
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:92
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "hashtags"."id" FROM "hashtags"[0m
+Started GET "/" for 127.0.0.1 at 2022-09-02 09:08:39 +1000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaeriches/.rvm/gems/ruby-2.7.2/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:98)
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:98
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 6.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2: <% @four_new_qs.each do | question | %>
+    3: 
+    4:     <div class="tally_new_container">
+    5:     
+  
+app/views/questions/random.html.erb:2:in `_app_views_questions_random_html_erb___3672117422269882472_18460'
+  [1m[36mHashtag Load (4.6ms)[0m  [1m[34mSELECT "hashtags".* FROM "hashtags" WHERE "hashtags"."id" IS NULL[0m
+Started GET "/" for 127.0.0.1 at 2022-09-02 09:10:46 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:98)
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:98
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2: <%= @four_new_qs.each do | question | %>
+    3: 
+    4:     <div class="tally_new_container">
+    5:     
+  
+app/views/questions/random.html.erb:2:in `_app_views_questions_random_html_erb___3672117422269882472_19020'
+Started GET "/" for 127.0.0.1 at 2022-09-02 09:11:04 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:98)
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:98
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2: <% @four_new_qs.each do | question | %>
+    3: 
+    4:     <div class="tally_new_container">
+    5:     
+  
+app/views/questions/random.html.erb:2:in `_app_views_questions_random_html_erb___3672117422269882472_19580'
+Started PUT "/__web_console/repl_sessions/3b7ad9e6113fcab6542f960f6794007f" for 127.0.0.1 at 2022-09-02 09:12:05 +1000
+Started PUT "/__web_console/repl_sessions/3b7ad9e6113fcab6542f960f6794007f" for 127.0.0.1 at 2022-09-02 09:12:09 +1000
+Started GET "/" for 127.0.0.1 at 2022-09-02 09:14:34 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:98)
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM()[0m
+  ↳ app/controllers/questions_controller.rb:98
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 141ms (Views: 119.9ms | ActiveRecord: 7.7ms)
+
+
