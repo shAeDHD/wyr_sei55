@@ -21,9 +21,20 @@ print "Creating Questions..."
 Question.destroy_all
 
 q1 = Question.create! opt_A: 'have everyone be able to read your thoughts', opt_B: 'for everyone you know to have access to your internet history'
-q2 = Question.create! opt_A: 'always have B.O. and not know it', opt_B: 'always smell B.O. on everyone else?'
+q2 = Question.create! opt_A: 'always have B.O. and not know it', opt_B: 'always smell B.O. on everyone else'
 q3 = Question.create! opt_A: 'have a baby vomit on you', opt_B: 'vomit on a baby'
 q4 = Question.create! opt_A: 'have someone tell you the brutal truth', opt_B: 'have them lie to protect your feelings'
+q5 = Question.create! opt_A: "have your name tattooed on your forehead", opt_B: "have no front teeth"
+q6 = Question.create! opt_A: "give up your phone", opt_B: "only wear crocs for the rest of your life"
+q7 = Question.create! opt_A: "clog the toilet on a first date", opt_B: "first day at a new job"
+q8 = Question.create! opt_A: "have an abnormally big toe", opt_B: "an abnormally big ear"
+q9 = Question.create! opt_A: "be three feet tall", opt_B: "eight feet tall"
+q10 = Question.create! opt_A: "have to be naked at work for an hour", opt_B: "be dropped off two miles from your house whilst you're naked and you have to try and get home"
+q11 = Question.create! opt_A: "smell like cheese (which has been left in the sun)", opt_B: "a hamster cage (which hasn't been cleaned for a fortnight)"
+q12 = Question.create! opt_A: "be a mad genius", opt_B: "popular but dim"
+q13 = Question.create! opt_A: "a nose that never stops growing", opt_B: "ears that never stop growing"
+q14 = Question.create! opt_A: "be able to travel everywhere for free", opt_B: "eat everywhere for free"
+q15 = Question.create! opt_A: "have a full-blown moustache for a year", opt_B: "permanently hairy legs for ten years"
 
 puts "created #{Question.count}"
 
@@ -72,6 +83,17 @@ puts "created #{Tally.count}"
 
 
 
-u1.questions << q1 << q4
-u2.questions << q2
-u3.questions << q3
+u1.questions << q1 << q4 << q8 << q13 << q14
+u2.questions << q2 << q6 << q9 << q11 << q12 << q15
+u3.questions << q3 << q5 << q7 << q10 
+
+
+
+
+
+
+
+
+
+
+

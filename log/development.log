@@ -34166,3 +34166,1423 @@ Processing by QuestionsController#edit as HTML
 Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/questions/119/edit" for 127.0.0.1 at 2022-09-01 16:14:19 +1000
+Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"119"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 119], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:62
+  Rendering questions/edit.html.erb within layouts/application
+  [1m[36mHashtag Load (0.8ms)[0m  [1m[34mSELECT "hashtags".* FROM "hashtags"[0m
+  ↳ app/views/questions/_form.html.erb:35
+  Rendered questions/_form.html.erb (3.2ms)
+  Rendered questions/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 37ms (Views: 32.3ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/questions/119" for 127.0.0.1 at 2022-09-01 16:14:22 +1000
+Processing by QuestionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vzympqyHnqcWvHSoSTdww8qivJbbkfiZk34zoGBjUKSqvoZv/GD5Jg1BHktRBtLgKAR3HhP2T2S4VorOkr5uiw==", "question"=>{"opt_A"=>"a", "opt_B"=>"b"}, "id"=>"119"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 119], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:74
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/questions_controller.rb:83
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/questions_controller.rb:83
+Redirected to http://localhost:3000/questions/119
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/questions/119" for 127.0.0.1 at 2022-09-01 16:14:22 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"119"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 119], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.5ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 119], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 119]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 119], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:14:25 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 38ms (Views: 25.4ms | ActiveRecord: 4.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7844864974042930890)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7844864974042930890)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mUser Destroy (2.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 76]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mUser Destroy (2.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 77]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 78]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jim@the_office.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "dob", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Jim"], ["email", "jim@the_office.com"], ["password_digest", "$2a$12$wXzuH4Qfap75eE.Xoia/VOqGapOnTVfFpfc0BupOvvBy2n51DVYz."], ["dob", "1979-05-15"], ["created_at", "2022-09-01 06:31:58.925258"], ["updated_at", "2022-09-01 06:31:58.925258"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "pam@the_office.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "dob", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Pam"], ["email", "pam@the_office.com"], ["password_digest", "$2a$12$DJ.ClnBd6srhlXiUl02zZeLEKvjs5enbdy01HqG5fZ19GxakSbEtO"], ["dob", "1979-09-25"], ["created_at", "2022-09-01 06:31:59.170130"], ["updated_at", "2022-09-01 06:31:59.170130"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dwight@the_office.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "dob", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dwight"], ["email", "dwight@the_office.com"], ["password_digest", "$2a$12$AEeUcODzsk58qeIfEpdXDOVH51Zmz1yYsMADlOIOPnzcOFOHRRG/a"], ["dob", "1970-02-26"], ["created_at", "2022-09-01 06:31:59.413931"], ["updated_at", "2022-09-01 06:31:59.413931"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mQuestion Load (2.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.4ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 111]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.3ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 111]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.2ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 112]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 112]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.2ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 113]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 113]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 114]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 114]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 115]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 115]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 116]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 116]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.2ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 117]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.2ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 117]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.2ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 118]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.2ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 118]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion::HABTM_Hashtags Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."question_id" = $1[0m  [["question_id", 119]]
+  ↳ db/seeds.rb:21
+  [1m[36mQuestion Destroy (0.1ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 119]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mQuestion Create (0.8ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have everyone be able to read your thoughts"], ["opt_B", "for everyone you know to have access to your internet history"], ["created_at", "2022-09-01 06:31:59.444805"], ["updated_at", "2022-09-01 06:31:59.444805"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "always have B.O. and not know it"], ["opt_B", "always smell B.O. on everyone else"], ["created_at", "2022-09-01 06:31:59.446168"], ["updated_at", "2022-09-01 06:31:59.446168"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have a baby vomit on you"], ["opt_B", "vomit on a baby"], ["created_at", "2022-09-01 06:31:59.446734"], ["updated_at", "2022-09-01 06:31:59.446734"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have someone tell you the brutal truth"], ["opt_B", "have them lie to protect your feelings"], ["created_at", "2022-09-01 06:31:59.447433"], ["updated_at", "2022-09-01 06:31:59.447433"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have your name tattooed on your forehead"], ["opt_B", "have no front teeth"], ["created_at", "2022-09-01 06:31:59.448097"], ["updated_at", "2022-09-01 06:31:59.448097"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "give up your phone"], ["opt_B", "only wear crocs for the rest of your life"], ["created_at", "2022-09-01 06:31:59.448661"], ["updated_at", "2022-09-01 06:31:59.448661"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "clog the toilet on a first date"], ["opt_B", "first day at a new job"], ["created_at", "2022-09-01 06:31:59.449260"], ["updated_at", "2022-09-01 06:31:59.449260"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have an abnormally big toe"], ["opt_B", "an abnormally big ear"], ["created_at", "2022-09-01 06:31:59.449962"], ["updated_at", "2022-09-01 06:31:59.449962"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "be three feet tall"], ["opt_B", "eight feet tall"], ["created_at", "2022-09-01 06:31:59.450562"], ["updated_at", "2022-09-01 06:31:59.450562"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have to be naked at work for an hour"], ["opt_B", "be dropped off two miles from your house whilst you're naked and you have to try and get home"], ["created_at", "2022-09-01 06:31:59.451610"], ["updated_at", "2022-09-01 06:31:59.451610"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "smell like cheese (which has been left in the sun)"], ["opt_B", "a hamster cage (which hasn't been cleaned for a fortnight)"], ["created_at", "2022-09-01 06:31:59.452387"], ["updated_at", "2022-09-01 06:31:59.452387"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "be a mad genius"], ["opt_B", "popular but dim"], ["created_at", "2022-09-01 06:31:59.455679"], ["updated_at", "2022-09-01 06:31:59.455679"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "a nose that never stops growing"], ["opt_B", "ears that never stop growing"], ["created_at", "2022-09-01 06:31:59.457255"], ["updated_at", "2022-09-01 06:31:59.457255"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "be able to travel everywhere for free"], ["opt_B", "eat everywhere for free"], ["created_at", "2022-09-01 06:31:59.458027"], ["updated_at", "2022-09-01 06:31:59.458027"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mQuestion Create (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("opt_A", "opt_B", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["opt_A", "have a full-blown moustache for a year"], ["opt_B", "permanently hairy legs for ten years"], ["created_at", "2022-09-01 06:31:59.458623"], ["updated_at", "2022-09-01 06:31:59.458623"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions"[0m
+  ↳ db/seeds.rb:39
+  [1m[36mHashtag Load (0.6ms)[0m  [1m[34mSELECT "hashtags".* FROM "hashtags"[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag::HABTM_Questions Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."hashtag_id" = $1[0m  [["hashtag_id", 103]]
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags" WHERE "hashtags"."id" = $1[0m  [["id", 103]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag::HABTM_Questions Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."hashtag_id" = $1[0m  [["hashtag_id", 104]]
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag Destroy (0.0ms)[0m  [1m[31mDELETE FROM "hashtags" WHERE "hashtags"."id" = $1[0m  [["id", 104]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag::HABTM_Questions Destroy (0.2ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."hashtag_id" = $1[0m  [["hashtag_id", 105]]
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags" WHERE "hashtags"."id" = $1[0m  [["id", 105]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag::HABTM_Questions Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."hashtag_id" = $1[0m  [["hashtag_id", 106]]
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags" WHERE "hashtags"."id" = $1[0m  [["id", 106]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag::HABTM_Questions Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."hashtag_id" = $1[0m  [["hashtag_id", 107]]
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags" WHERE "hashtags"."id" = $1[0m  [["id", 107]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag::HABTM_Questions Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags_questions" WHERE "hashtags_questions"."hashtag_id" = $1[0m  [["hashtag_id", 108]]
+  ↳ db/seeds.rb:47
+  [1m[36mHashtag Destroy (0.1ms)[0m  [1m[31mDELETE FROM "hashtags" WHERE "hashtags"."id" = $1[0m  [["id", 108]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mHashtag Create (0.7ms)[0m  [1m[32mINSERT INTO "hashtags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "adult"], ["created_at", "2022-09-01 06:31:59.469458"], ["updated_at", "2022-09-01 06:31:59.469458"]]
+  ↳ db/seeds.rb:49
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mHashtag Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "minor"], ["created_at", "2022-09-01 06:31:59.470700"], ["updated_at", "2022-09-01 06:31:59.470700"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:51
+  [1m[36mHashtag Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "rude"], ["created_at", "2022-09-01 06:31:59.471223"], ["updated_at", "2022-09-01 06:31:59.471223"]]
+  ↳ db/seeds.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:51
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mHashtag Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "wholesome"], ["created_at", "2022-09-01 06:31:59.471681"], ["updated_at", "2022-09-01 06:31:59.471681"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[36mHashtag Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "funny"], ["created_at", "2022-09-01 06:31:59.472121"], ["updated_at", "2022-09-01 06:31:59.472121"]]
+  ↳ db/seeds.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mHashtag Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "serious"], ["created_at", "2022-09-01 06:31:59.476731"], ["updated_at", "2022-09-01 06:31:59.476731"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "hashtags"[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mHashtag::HABTM_Questions Create (0.2ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 109], ["question_id", 122]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 109], ["question_id", 120]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 110], ["question_id", 121]]
+  ↳ db/seeds.rb:59
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 110], ["question_id", 123]]
+  ↳ db/seeds.rb:59
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:60
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 111], ["question_id", 122]]
+  ↳ db/seeds.rb:60
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:60
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:60
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 111], ["question_id", 121]]
+  ↳ db/seeds.rb:60
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:60
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:61
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 112], ["question_id", 123]]
+  ↳ db/seeds.rb:61
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:61
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 113], ["question_id", 122]]
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mHashtag::HABTM_Questions Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 113], ["question_id", 121]]
+  ↳ db/seeds.rb:62
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mHashtag::HABTM_Questions Create (0.0ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 113], ["question_id", 120]]
+  ↳ db/seeds.rb:62
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mHashtag::HABTM_Questions Create (0.1ms)[0m  [1m[32mINSERT INTO "hashtags_questions" ("hashtag_id", "question_id") VALUES ($1, $2) RETURNING "id"[0m  [["hashtag_id", 114], ["question_id", 123]]
+  ↳ db/seeds.rb:63
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.1ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 103]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 104]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 105]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 106]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 107]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 108]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 109]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 110]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 111]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTally Destroy (0.0ms)[0m  [1m[31mDELETE FROM "tallies" WHERE "tallies"."id" = $1[0m  [["id", 112]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:75
+  [1m[36mTally Create (0.1ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 120], ["question_answer", false], ["created_at", "2022-09-01 06:31:59.494075"], ["updated_at", "2022-09-01 06:31:59.494075"]]
+  ↳ db/seeds.rb:75
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:75
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:76
+  [1m[36mTally Create (0.0ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 80], ["question_id", 122], ["question_answer", false], ["created_at", "2022-09-01 06:31:59.494660"], ["updated_at", "2022-09-01 06:31:59.494660"]]
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:77
+  [1m[36mTally Create (0.0ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 80], ["question_id", 121], ["question_answer", true], ["created_at", "2022-09-01 06:31:59.495087"], ["updated_at", "2022-09-01 06:31:59.495087"]]
+  ↳ db/seeds.rb:77
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:77
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mTally Create (0.0ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 81], ["question_id", 120], ["question_answer", true], ["created_at", "2022-09-01 06:31:59.495506"], ["updated_at", "2022-09-01 06:31:59.495506"]]
+  ↳ db/seeds.rb:78
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tallies"[0m
+  ↳ db/seeds.rb:80
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.496704"], ["user_id", 79], ["id", 120]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.497317"], ["user_id", 79], ["id", 123]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mQuestion Update (0.0ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.497772"], ["user_id", 79], ["id", 127]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mQuestion Update (0.0ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.498237"], ["user_id", 79], ["id", 132]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.498659"], ["user_id", 79], ["id", 133]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mQuestion Update (0.0ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.499331"], ["user_id", 80], ["id", 121]]
+  ↳ db/seeds.rb:87
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.499752"], ["user_id", 80], ["id", 125]]
+  ↳ db/seeds.rb:87
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mQuestion Update (0.0ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.500202"], ["user_id", 80], ["id", 128]]
+  ↳ db/seeds.rb:87
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mQuestion Update (0.0ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.500645"], ["user_id", 80], ["id", 130]]
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mQuestion Update (0.0ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.501060"], ["user_id", 80], ["id", 131]]
+  ↳ db/seeds.rb:87
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.501533"], ["user_id", 80], ["id", 134]]
+  ↳ db/seeds.rb:87
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.502069"], ["user_id", 81], ["id", 122]]
+  ↳ db/seeds.rb:88
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.502608"], ["user_id", 81], ["id", 124]]
+  ↳ db/seeds.rb:88
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.503122"], ["user_id", 81], ["id", 126]]
+  ↳ db/seeds.rb:88
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mQuestion Update (0.1ms)[0m  [1m[33mUPDATE "questions" SET "updated_at" = $1, "user_id" = $2 WHERE "questions"."id" = $3[0m  [["updated_at", "2022-09-01 06:31:59.503623"], ["user_id", 81], ["id", 129]]
+  ↳ db/seeds.rb:88
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:04 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 13.9ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:05 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 36ms (Views: 31.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:06 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:06 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 9.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:07 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 31ms (Views: 24.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:07 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:14 +1000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaeriches/.rvm/gems/ruby-2.7.2/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 190ms (Views: 164.5ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:15 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (3.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 8.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:16 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:17 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 21.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:17 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:17 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:18 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:19 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:19 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:20 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:20 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 41ms (Views: 36.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:21 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 35ms (Views: 19.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:21 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:22 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:23 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:23 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:24 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 20.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:24 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 38ms (Views: 33.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:24 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 16:32:25 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:13:08 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 21.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:13:46 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 25ms (Views: 18.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:14:18 +1000
+Processing by QuestionsController#random as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:11)
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:11
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-09-01 17:19:50 +1000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 42ms (Views: 28.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-09-01 17:19:54 +1000
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-09-01 17:20:00 +1000
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"50ez6SarGA/taRN7yrLnEchA9VpLX3VLnr8lIIqsYtzyxZMgdkx/jvaUeZjSg0UyKuY+0oM4wra1l5xOeHFc8w==", "email"=>"jim@the_office.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jim@the_office.com"], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 267ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:20:00 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `tallies' for nil:NilClass):
+  
+app/models/question.rb:11:in `<class:Question>'
+app/models/question.rb:1:in `<main>'
+app/controllers/questions_controller.rb:57:in `random'
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:35 +1000
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:41 +1000
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:42 +1000
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:43 +1000
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:45 +1000
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:46 +1000
+Started PUT "/__web_console/repl_sessions/53c2931ab284426526900e1df9ac7f90" for 127.0.0.1 at 2022-09-01 17:20:48 +1000
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:20 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 9.2ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/tallies/question/133/B" for 127.0.0.1 at 2022-09-01 17:21:23 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"5EwkTF1cBGyIFmG7q8vDFj6LWlaNXmn6+f/s0fJTJaHxzgSFDbtj7ZPrC1iz+mE13C2R3kU53gfS11W/AI4bjg==", "question_id"=>"133", "choice"=>"B"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (0.9ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 133], ["question_answer", false], ["created_at", "2022-09-01 07:21:23.925458"], ["updated_at", "2022-09-01 07:21:23.925458"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/133
+Completed 302 Found in 37ms (ActiveRecord: 21.4ms)
+
+
+Started GET "/questions/133" for 127.0.0.1 at 2022-09-01 17:21:23 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"133"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.5ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.3ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 133]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 11.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:25 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 38ms (Views: 29.9ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/tallies/question/130/A" for 127.0.0.1 at 2022-09-01 17:21:27 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"tcJJRQiJ1YHPLYmHcnbgktuSc/t06cHaputmoQquM3SgQGmMWG6yANTQ42RqR0KxOTS4c7yOdieNw9/P+HMNWw==", "question_id"=>"130", "choice"=>"A"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (1.5ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 130], ["question_answer", true], ["created_at", "2022-09-01 07:21:27.074827"], ["updated_at", "2022-09-01 07:21:27.074827"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/130
+Completed 302 Found in 11ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/questions/130" for 127.0.0.1 at 2022-09-01 17:21:27 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"130"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.5ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 130], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.8ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 130]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.6ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 130], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 26ms (Views: 13.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:27 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/tallies/question/131/A" for 127.0.0.1 at 2022-09-01 17:21:28 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"2AYiJo82UuL118qhxNty6mr+n05SvWFlSDYdt8cCwCfNhALv39E1Y+4qoELc6tDJiFhUxpra1phjHqTZNd/+CA==", "question_id"=>"131", "choice"=>"A"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (1.4ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 131], ["question_answer", true], ["created_at", "2022-09-01 07:21:28.791895"], ["updated_at", "2022-09-01 07:21:28.791895"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/131
+Completed 302 Found in 15ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/questions/131" for 127.0.0.1 at 2022-09-01 17:21:28 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"131"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 131], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (2.8ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 131], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 131]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.3ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 131], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 12.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:29 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 39ms (Views: 32.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/tallies/question/130/B" for 127.0.0.1 at 2022-09-01 17:21:30 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"x9DHXzkSqpSEi49HLpLkYfGPWi8C70dkW3cFYSNwMYPSUueWafXNFZ925aQ2o0ZCEymRp8qI8JlwX7wP0a0PrA==", "question_id"=>"130", "choice"=>"B"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (1.4ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 130], ["question_answer", false], ["created_at", "2022-09-01 07:21:30.800922"], ["updated_at", "2022-09-01 07:21:30.800922"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/130
+Completed 302 Found in 12ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/questions/130" for 127.0.0.1 at 2022-09-01 17:21:30 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"130"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 130], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.3ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 130]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 130], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:31 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 36ms (Views: 30.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/tallies/question/127/A" for 127.0.0.1 at 2022-09-01 17:21:32 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"zZX6TY280P0fxvuW1zIT3k7vCRFPslmnmySJV2aplK3YF9qE3Vu3fAQ7kXXPA7H9rEnCmYfV7lqwDDA5lHSqgg==", "question_id"=>"127", "choice"=>"A"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (1.0ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 127], ["question_answer", true], ["created_at", "2022-09-01 07:21:32.405464"], ["updated_at", "2022-09-01 07:21:32.405464"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/127
+Completed 302 Found in 11ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/questions/127" for 127.0.0.1 at 2022-09-01 17:21:32 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"127"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 127], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (2.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 127], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 127]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 127], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:33 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (1.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 30ms (Views: 12.9ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/tallies/question/124/B" for 127.0.0.1 at 2022-09-01 17:21:34 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"iICVk147ZFC69Xifq7yd6biwNCkU3dshKpeB29cN4HydArVaDtwD0aEIEnyzjT/KWhb/ody6bNwBvzi1JdDeUw==", "question_id"=>"124", "choice"=>"B"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (0.5ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 124], ["question_answer", false], ["created_at", "2022-09-01 07:21:34.381730"], ["updated_at", "2022-09-01 07:21:34.381730"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/124
+Completed 302 Found in 4ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/questions/124" for 127.0.0.1 at 2022-09-01 17:21:34 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"124"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 124], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (2.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 124]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.3ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 124], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:21:36 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/tallies/question/133/A" for 127.0.0.1 at 2022-09-01 17:21:37 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"yGGeA4r/EHzl1+zuTem4Yz3rkzvWcXOS0YqoxBlLadHd477K2hh3/f4qhg1V2BpA301Ysx4WxG/6ohGq65ZX/g==", "question_id"=>"133", "choice"=>"A"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (0.4ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 133], ["question_answer", true], ["created_at", "2022-09-01 07:21:37.625193"], ["updated_at", "2022-09-01 07:21:37.625193"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/133
+Completed 302 Found in 11ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/questions/133" for 127.0.0.1 at 2022-09-01 17:21:37 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"133"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 133]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTally Load (0.6ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."user_id" = $1[0m  [["user_id", 79]]
+Started GET "/questions/133" for 127.0.0.1 at 2022-09-01 17:23:05 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"133"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 133]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.2ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 13.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/questions/133" for 127.0.0.1 at 2022-09-01 17:23:06 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"133"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.3ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 133]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 53ms (Views: 13.0ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/questions/133" for 127.0.0.1 at 2022-09-01 17:23:07 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"133"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 133]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.9ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 133], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 35ms (Views: 19.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:23:11 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (3.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 10.0ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/tallies/question/127/A" for 127.0.0.1 at 2022-09-01 17:23:13 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"jgibTRc4DYqRGe6DIc122ezJkiIJs00tc6zGk97buJWbiruER99qC4rkhGA5/NT6Dm9ZqsHU+tBYhH/9LAaGug==", "question_id"=>"127", "choice"=>"A"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (3.2ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 127], ["question_answer", true], ["created_at", "2022-09-01 07:23:13.080266"], ["updated_at", "2022-09-01 07:23:13.080266"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/127
+Completed 302 Found in 25ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/questions/127" for 127.0.0.1 at 2022-09-01 17:23:13 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"127"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 127], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 127], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 127]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.1ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 127], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-01 17:23:14 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random_question at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/models/question.rb:24)
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/question.rb:24
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 19.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/tallies/question/126/B" for 127.0.0.1 at 2022-09-01 17:23:16 +1000
+Processing by TalliesController#create as HTML
+  Parameters: {"authenticity_token"=>"2wAzazL++ODiLoLYj3QAaYEnJBx6+EyPCG9YKDsvUtPOghOiYhmfYfnT6DuXRaJKY4HvlLKf+3IjR+FGyfJs/A==", "question_id"=>"126", "choice"=>"B"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[36mTally Create (0.3ms)[0m  [1m[32mINSERT INTO "tallies" ("user_id", "question_id", "question_answer", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 79], ["question_id", 126], ["question_answer", false], ["created_at", "2022-09-01 07:23:16.276013"], ["updated_at", "2022-09-01 07:23:16.276013"]]
+  ↳ app/controllers/tallies_controller.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tallies_controller.rb:11
+Redirected to http://localhost:3000/questions/126
+Completed 302 Found in 5ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/questions/126" for 127.0.0.1 at 2022-09-01 17:23:16 +1000
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"126"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  ↳ app/controllers/questions_controller.rb:44
+  [1m[36mTally Load (4.0ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 126], ["question_answer", true]]
+  ↳ app/controllers/questions_controller.rb:46
+  [1m[36mTally Load (0.8ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1[0m  [["question_id", 126]]
+  ↳ app/controllers/questions_controller.rb:47
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."question_id" = $1 AND "tallies"."question_answer" = $2[0m  [["question_id", 126], ["question_answer", false]]
+  ↳ app/controllers/questions_controller.rb:49
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 36ms (Views: 21.5ms | ActiveRecord: 6.2ms)
+
+
