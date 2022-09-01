@@ -54,3 +54,20 @@ ActiveRecord::Schema.define(version: 2022_08_31_062842) do
   end
 
 end
+
+#      once tally is made from question options
+#      then before next question is shown,
+#      the users tallies are viewed to identify
+#      which questions they interact with more
+
+#------     @current_user = User.find_by id: session[:user_id] ----------#
+
+# therefore, @current_user = User.first [Jim]
+#      @current_user.tallies
+
+
+
+
+
+
+

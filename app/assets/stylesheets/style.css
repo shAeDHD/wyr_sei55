@@ -369,8 +369,8 @@ h3{
     position: relative;
     border-radius: 100%;
     background-color: azure;
-    width: 3vw;
-    height: 3vw;
+    width: 10vw;
+    height: 10vw;
     overflow: hidden;
 
 
@@ -396,14 +396,12 @@ h3{
 }
 .st1{
 
-
     animation: rotation 30s linear infinite;
     transform-origin: center;
       
 } /* class for vector swirls */
 
 @keyframes rotation {
-
 
     100% {transform: rotate(-359deg);}
 
