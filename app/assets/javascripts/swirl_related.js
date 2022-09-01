@@ -30,7 +30,10 @@ $(function(){
 
 
 
+// SWITCH TO THESE STATS WHEN CLICKED 
 
-
-
-
+// overflow: none
+// height: auto;
+// width: auto;
+// border-radius: 5%;
+ 

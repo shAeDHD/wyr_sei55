@@ -12,7 +12,7 @@ class Question < ApplicationRecord
 
         if @current_user.present? && @current_user.tallies.length > 3  
             
-            preference_questions()
+            preference_questions
 
             def self.preference_questions
                 

@@ -6,7 +6,7 @@
 
     height: 100%;
     width: 100%;
-    /* background-color: #231f20; */
+    background-color: #231f20;
     
     
 }
@@ -30,6 +30,7 @@ h3{
     color: #242423;
     text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
     font-size: 25pt;
+    /* display: inline; */
 
 }
 
@@ -168,7 +169,30 @@ h3{
 /* ---------------------------------------------------------------- */
 /* ---------------- questions / random.html.erb ------------------- */
 /* ---------------------------------------------------------------- */
-#tally_new_h3{
+.tally_new_fake_front{
+
+}
+.tally_new_container{
+    text-align: center;
+    
+    border-radius: 10%;
+    background-color:#242423 ;
+    overflow: auto;
+
+    height: 40vh;
+    width: 20vw;
+	filter: drop-shadow(2px 1px .5px pink);
+    
+
+
+
+
+
+
+
+}
+
+.tally_new_h3{
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 2;
@@ -178,7 +202,7 @@ h3{
     align-self: end;
     
 }
-#tally_new_opt_a{
+.tally_new_opt_a{
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -193,7 +217,7 @@ h3{
     text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
 
 }
-#tally_new_or{
+.tally_new_or{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -203,7 +227,7 @@ h3{
     justify-self: center;
     align-self: center;
 }
-#tally_new_opt_b{
+.tally_new_opt_b{
     grid-column-start: 4;
     grid-column-end: 6;
     grid-row-start: 3;
@@ -387,7 +411,9 @@ h3{
 
 }
 #swirl{
-    display: none;
+    /* display: none; */ /* COMMENT IN TO TOGGLE SWIRL PATTERN OFF */
+
+
     position: absolute;
     top: -2%;
     left: -2%;
