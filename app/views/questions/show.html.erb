@@ -1,3 +1,5 @@
+<div id="question_main_container">
+
 <div id="question_container">
     
     <p class="wyr_text">"Would you rather</p> 
@@ -45,7 +47,7 @@
             <div id="option_b_box" style="width:<%=@opt_b_as_percentage%>%"></div>
         <% end %>
     </div>
-
+    
 <% end %> <!-- closes if/else/end -->
 
 <% if @question.thumbnail_image.present? %>
@@ -68,3 +70,4 @@
     <%= link_to "Next WYR", root_path, class: "question_next_link"  %>
 </div>
 
+</div>

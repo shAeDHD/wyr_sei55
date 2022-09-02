@@ -1,3 +1,18 @@
+a:link {
+    color:#242423;
+}
+a:visited{
+    color:#231f20;
+}
+article{
+    color: pink;
+    font-size: 20pt;
+}
+#node1{
+    height: 10vh;
+    width: 10vw;
+
+}
 
 /* ---------------------------------------------------------------- */
 /* ------------------- application.html.erb ----------------------- */
@@ -16,7 +31,7 @@
     width: 101vw;
     position: absolute;
 
-    color: #242423;
+    color: #ffffff;
     width: 101vw;
     height: 101vh;
     
@@ -28,7 +43,7 @@
 }
 h3{
     color: #242423;
-    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #ff44f9 ;
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
     font-size: 25pt;
     /* display: inline; */
 
@@ -37,17 +52,30 @@ h3{
 /* ---------------------------------------------------------------- */
 /* ------------------- questions/ show.html.erb ------------------- */
 /* ---------------------------------------------------------------- */
+#question_main_container{
+    display: inline-flex;
+    flex-direction: column;
+    position: absolute;
+    
+    right: 10vw;
+    background-color: #242423;
+    box-shadow: 1px 1px 5px rgb(246, 59, 187);
+    border-radius: 10%;
+    width: 30%;
+
+}
+
 #question_container{
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-end: 4;
 
     display: flex;
     justify-content:space-evenly;
     
     padding: 5px;
-    border: 4px ridge slategray;
+
 
     text-align: center;
 }
@@ -169,24 +197,36 @@ h3{
 /* ---------------------------------------------------------------- */
 /* ---------------- questions / random.html.erb ------------------- */
 /* ---------------------------------------------------------------- */
-
-.tally_new_container{
-    z-index: 5;
-
-    text-align: center;
-    
-    border-radius: 10%;
+.tally_new_main{
     background-color:#242423 ;
-    overflow: none;
+    z-index: 5;
+    text-align: center;
+}
+.tally_new_container_small{
 
-    height: 40vw;
-    width: 20vw;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 5vw;
+    width: 5vw;
 	filter: drop-shadow(2px 1px .5px pink);
 
+    left: 35vw;
+    bottom: -85vh;
     
 
 
 }
+.tally_new_container_large{
+
+    border-radius: 10%;
+    overflow: auto;
+
+    height: 40vw;
+    width: 20vw;
+	filter: drop-shadow(2px 1px .5px pink);
+}
+
 
 .tally_new_h3{
     grid-column-start: 1;
@@ -261,6 +301,17 @@ h3{
 /* ---------------------------------------------------------------- */
 /* --------------------- users / show.html.erb -------------------- */
 /* ---------------------------------------------------------------- */
+#user_info_main_container{
+height: 40vh;
+width: 30vw;
+display: inline-flex;
+flex-direction: column;
+background-color: #231f20;
+border-radius: 20%;
+box-shadow: 1px 1px 5px rgb(246, 59, 187);
+
+
+}
 #user_info_name_container{
     grid-column-start: 1;
     grid-column-end: 3;
@@ -311,10 +362,14 @@ h3{
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
-
-    justify-self: center;
+    color: #231f20;
+    justify-self: right;
     align-self: flex-end;
-    border: 2px ridge goldenrod;
+    box-shadow: 1px 1px 5px rgb(8, 234, 255);
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+
+    
+    border-radius: 100%;
     padding: 0.5vw;
 }
 #edit_question_h2{
@@ -323,9 +378,14 @@ h3{
     grid-row-start: 1;
     grid-row-end: 2;
 
-    justify-self: center;
+    justify-self: right;
     align-self: flex-end;
-    border: 2px ridge goldenrod;
+    color: #231f20;
+    border-radius: 100%;
+    box-shadow: 1px 1px 5px rgb(8, 234, 255);
+    text-shadow: -0.5px -1px 0 pink, 1px -1px 0 pink, -0.5px 1px 0 pink, 1px 1px 0 pink, 1px 1px 2vw #00c3ff, 1px 1px 1vw #f200ff ;
+
+
     padding: 0.5vw;
 }
 .question_container{
@@ -338,11 +398,22 @@ h3{
     text-align: center;
     justify-content: center;
     align-content: center;
+
+    position: absolute;
+    
+    right: 10vw;
+    background-color: #242423;
+    box-shadow: 1px 1px 5px rgb(246, 59, 187);
+    border-radius: 10%;
+    width: 30%;
+
 }
 .new_or_edit_text_box{
     width: 50vw;
     height: 5vh;
     text-align: center;
+    box-shadow: 1px 1px 5px rgb(8, 234, 255);
+
 }
 
 #edit_question_link_container{
@@ -385,27 +456,101 @@ h3{
 /* ---------------------------------------------------------------- */
 /* --------------------- NEW main menu ---------------------------- */
 /* ---------------------------------------------------------------- */
-#menu_container{
-    position: relative;
+.menu_container_toggle_off{
     border-radius: 100%;
-    background-color: azure;
-    width: 10vw;
-    height: 10vw;
+    width: 8vw;
+    height: 8vw;
+    bottom: 60vh;
+    right: 70vw;
+    font-size: 10pt;
+    background-color:#242423;
+
+    /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
+
+    /* Quick on the way out */
+    transition: 1s;
+    z-index: 1000
+
+
+}
+.menu_container_toggle_on{
+    border-radius: 15%;
+    width: 15vw;
+    height: 15vh;
+    bottom: 15vh;
+    right: 15vw;
+    font-size: 15pt;
+    background-color:pink;
+    
+
+    /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
+
+    /* Quick on the way out */
+    transition: 1s;
+    z-index: 1000
+
+
+}
+/* #menu_facade{
+    display: block;
+    z-index: 500;
+    background-image:;
+} */
+#click_el{
+    justify-content: center;
+
+}
+#menu_container{
+    position: absolute;
     overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    display: inline-flex;
+    color: #242423;
+    box-shadow: 1px 1px 5px rgb(246, 59, 187);
 
-
-    bottom: 0px;
-    left: 0px;
+    
+    animation-name: quiver;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    
     
 
 }
+@keyframes quiver {
+
+    0% {
+        left: 23%;
+        top: 40%;
+    
+    }
+
+    50% {
+        left: 24.1%;
+        top: 40.9%
+    }
+
+    100%{
+        left: 23%;
+        top:40%
+    }
+
+}
+
+
 .menu_item{
 
     position: relative;
-    display: inline;
+    display: flexbox;
+
 
 
 }
+
 #swirl{
     /* display: none; */ /* COMMENT IN TO TOGGLE SWIRL PATTERN OFF */
 
@@ -418,10 +563,13 @@ h3{
 }
 .st1{
 
-    animation: rotation 30s linear infinite;
+    animation: rotation 120s linear infinite;
     transform-origin: center;
+    filter: drop-shadow(0px 1px 1px rgba(255, 0, 221,50%)) drop-shadow(-1px 1px 1px pink) drop-shadow(0px 0px 1px rgba(0, 255, 251, 30%));
+    /* filter: drop-shadow(-2px 2px 1px pink); */
+
       
-} /* class for vector swirls */
+} /* class for vector swirls 0 3 7 10 */
 
 @keyframes rotation {
 
@@ -434,6 +582,31 @@ h3{
 
     height: 20vh;
     width: 20vw;
+    color: aliceblue;
 
 }
 
+
+/* NOT COMPLETED - ANIMATION OF SPHERES */
+/* .tally_new_container_small:nth-of-type(1){
+
+    background-color: white;
+    position: relative;
+    top: 19vh;
+    left: 28vw;
+
+    transform-origin: top center;
+    animation-name: orbit;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    
+    
+
+}
+@keyframes orbit {
+
+    from    { transform: rotate(0deg)   }
+    to      { transform: rotate(359deg) }
+
+
+} */

@@ -23,8 +23,12 @@
 
     <div id="main_body_contents_container">
 
-      <div id="menu_container">
+    
 
+      <%= yield %>
+          
+       <div id="menu_container" class="menu_container_toggle_off">
+        <div id="menu_facade">
         <header id="nav_header" class="menu_item">
 
           <nav id="nav_bar">
@@ -38,28 +42,31 @@
                 |
                 <%= link_to 'WYR: New', new_question_path, class: "nav_bar_item"  %>
                 |
+                <%= link_to 'HOME', root_path, class: "nav_bar_item" %>
 
               <% else %>
               
                 <%= link_to 'Login', login_path, class: "nav_bar_item" %>
                 |
                 <%= link_to 'Sign Up', new_user_path, class: "nav_bar_item" %>
+                |
+                <%= link_to 'Home', root_path, class: "nav_bar_item" %>
               
               <% end %>   <!--  -->
 
           </nav>
 
         </header> <!-- closes header -->
-
         <footer id="main_footer" class="menu_item">
+          <br>
+        <article id="click_el">Click Here</article>
 
           &copy;2022. WillYolandaRing
         </footer> <!-- closes footer -->
-      </div>
 
-      <%= yield %>
-          
-      
+        <p><em> Click Again to shrink</em></p>
+      </div>
+      </div> <!-- closes menu_container -->
 
 
     </div> <!-- closes main_body_contens_container -->

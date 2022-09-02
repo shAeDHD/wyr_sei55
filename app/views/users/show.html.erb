@@ -1,11 +1,14 @@
 
-
+<div id="user_info_main_container">
 <div id="user_info_name_container">
     <p class="user_info_name">Display Name:</p> 
     <h3 class="user_info_name"><%= @current_user.name %></h3>
+<br>
+
 </div>
 
 <div id="user_info_email_container">
+<br>
     <p class="user_info_email">Email:</p>
     <p class="user_info_email"><%= @current_user.email %></p>
 </div>
@@ -13,6 +16,8 @@
 <div id="user_info_dob_container">
     <p class="user_info_dob">Dob:</p>  
     <p class="user_info_dob"><%= @current_user.dob.strftime("%d-%m-%Y")%></p> 
+<br>
+    
 </div>
 
 <div id="user_info_made_questions_container">
@@ -49,3 +54,4 @@
 
 </div>
 
+</div>

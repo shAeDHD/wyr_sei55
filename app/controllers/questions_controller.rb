@@ -57,7 +57,7 @@ class QuestionsController < ApplicationController
 # -----------------------------------------------------------------------------------------#
 
   def random
-
+    
     if @current_user.present? && @current_user.tallies.length > 3  
         
       # in order to ensure fresh selection, reset hashtag_ids to 'nil' at beginning
