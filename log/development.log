@@ -51550,3 +51550,73 @@ DEPRECATION WARNING: Dangerous query method (method whose arguments are used as 
 Completed 200 OK in 40ms (Views: 15.0ms | ActiveRecord: 6.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2022-09-02 14:57:06 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."user_id" = $1[0m  [["user_id", 91]]
+  ↳ app/controllers/questions_controller.rb:61
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:99)
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM()[0m
+  ↳ app/controllers/questions_controller.rb:99
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 47ms (Views: 38.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-02 14:59:05 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mTally Load (0.4ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."user_id" = $1[0m  [["user_id", 91]]
+  ↳ app/controllers/questions_controller.rb:61
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:99)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM()[0m
+  ↳ app/controllers/questions_controller.rb:99
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 49ms (Views: 41.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-02 14:59:24 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mTally Load (0.7ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."user_id" = $1[0m  [["user_id", 91]]
+  ↳ app/controllers/questions_controller.rb:61
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:99)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM()[0m
+  ↳ app/controllers/questions_controller.rb:99
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 50ms (Views: 31.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-02 14:59:37 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mTally Load (0.6ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."user_id" = $1[0m  [["user_id", 91]]
+  ↳ app/controllers/questions_controller.rb:61
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:99)
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM()[0m
+  ↳ app/controllers/questions_controller.rb:99
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 28.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-09-02 14:59:44 +1000
+Processing by QuestionsController#random as HTML
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mTally Load (0.6ms)[0m  [1m[34mSELECT "tallies".* FROM "tallies" WHERE "tallies"."user_id" = $1[0m  [["user_id", 91]]
+  ↳ app/controllers/questions_controller.rb:61
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "RANDOM()". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from random at /Users/shaeriches/sei/projects/WYR/would_you_rather/app/controllers/questions_controller.rb:99)
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM()[0m
+  ↳ app/controllers/questions_controller.rb:99
+  Rendering questions/random.html.erb within layouts/application
+  Rendered questions/random.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 26.4ms | ActiveRecord: 6.4ms)
+
+

@@ -214,11 +214,19 @@ h3{
     left: 35vw;
     bottom: -85vh;
     
+    /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
 
+    /* Quick on the way out */
+    transition: .5s;
 
 }
 .tally_new_container_large{
+    /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
 
+    /* Quick on the way out */
+    transition: .5s;
     border-radius: 10%;
     overflow: auto;
 
@@ -309,6 +317,7 @@ flex-direction: column;
 background-color: #231f20;
 border-radius: 20%;
 box-shadow: 1px 1px 5px rgb(246, 59, 187);
+
 
 
 }
