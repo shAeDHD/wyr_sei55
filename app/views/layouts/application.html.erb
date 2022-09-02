@@ -34,6 +34,7 @@
           <nav id="nav_bar">
 
               <% if @current_user.present? %>
+              <br>
                 Welcome, <%= " #{@current_user.name}" %>,
                 |
                 <%= link_to 'Profile', @current_user, class: "nav_bar_item" %>
